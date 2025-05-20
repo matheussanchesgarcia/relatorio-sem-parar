@@ -32,8 +32,8 @@ const TollPieChart = ({ data }: TollPieChartProps) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Cost Distribution</CardTitle>
-        <CardDescription>Percentage breakdown of toll expenses</CardDescription>
+        <CardTitle>Distribuição de Custos</CardTitle>
+        <CardDescription>Divisão percentual das despesas de pedágio</CardDescription>
       </CardHeader>
       <CardContent className="h-80">
         <ResponsiveContainer width="100%" height="100%">

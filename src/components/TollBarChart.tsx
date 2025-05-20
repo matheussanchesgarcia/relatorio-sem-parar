@@ -12,8 +12,8 @@ const TollBarChart = ({ data }: TollBarChartProps) => {
   return (
     <Card className="col-span-2">
       <CardHeader>
-        <CardTitle>Total Toll Costs by Entity</CardTitle>
-        <CardDescription>Comparing toll expenses across different entities</CardDescription>
+        <CardTitle>Custos Totais de Pedágio por Entidade</CardTitle>
+        <CardDescription>Comparando despesas de pedágio entre diferentes entidades</CardDescription>
       </CardHeader>
       <CardContent className="h-80">
         <ResponsiveContainer width="100%" height="100%">
@@ -38,13 +38,13 @@ const TollBarChart = ({ data }: TollBarChartProps) => {
               tickFormatter={(value) => `R$${(value / 1000).toFixed(0)}K`}
             />
             <Tooltip 
-              formatter={(value: number) => [formatCurrency(value), "Cost"]}
-              labelFormatter={(label) => `Entity: ${label}`}
+              formatter={(value: number) => [formatCurrency(value), "Custo"]}
+              labelFormatter={(label) => `Entidade: ${label}`}
             />
             <Bar 
               dataKey="value" 
               fill="#2563eb" 
-              name="Cost"
+              name="Custo"
               radius={[4, 4, 0, 0]}
             />
           </BarChart>

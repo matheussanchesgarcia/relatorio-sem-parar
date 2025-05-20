@@ -27,7 +27,7 @@ const MetricCards = ({ data, totalCost }: MetricCardsProps) => {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between pb-2">
           <div className="space-y-0">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Total Cost</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">Custo Total</CardTitle>
             <CardDescription className="text-2xl font-bold">{formatCurrency(totalCost)}</CardDescription>
           </div>
           <div className="rounded-full p-2 bg-blue-100">
@@ -45,14 +45,14 @@ const MetricCards = ({ data, totalCost }: MetricCardsProps) => {
         </CardHeader>
         <CardContent>
           <div className="text-xs text-muted-foreground">
-            All entities combined
+            Todas as entidades combinadas
           </div>
         </CardContent>
       </Card>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between pb-2">
           <div className="space-y-0">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Highest Cost</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">Maior Custo</CardTitle>
             <CardDescription className="text-2xl font-bold">{formatCurrency(highestCost.value)}</CardDescription>
           </div>
           <div className="rounded-full p-2 bg-red-100">
@@ -77,7 +77,7 @@ const MetricCards = ({ data, totalCost }: MetricCardsProps) => {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between pb-2">
           <div className="space-y-0">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Lowest Cost</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">Menor Custo</CardTitle>
             <CardDescription className="text-2xl font-bold">{formatCurrency(lowestCost.value)}</CardDescription>
           </div>
           <div className="rounded-full p-2 bg-green-100">

@@ -12,8 +12,8 @@ const ComparisonChart = ({ data }: ComparisonChartProps) => {
   return (
     <Card className="col-span-3">
       <CardHeader>
-        <CardTitle>Entity Cost Comparison</CardTitle>
-        <CardDescription>Horizontal comparison of toll costs</CardDescription>
+        <CardTitle>Comparação de Custos por Entidade</CardTitle>
+        <CardDescription>Comparação horizontal de custos de pedágio</CardDescription>
       </CardHeader>
       <CardContent className="h-80">
         <ResponsiveContainer width="100%" height="100%">
@@ -35,7 +35,7 @@ const ComparisonChart = ({ data }: ComparisonChartProps) => {
               tick={{ fontSize: 12 }} 
             />
             <Tooltip 
-              formatter={(value: number) => [formatCurrency(value), "Cost"]}
+              formatter={(value: number) => [formatCurrency(value), "Custo"]}
             />
             {data.map((entry, index) => (
               <Bar 

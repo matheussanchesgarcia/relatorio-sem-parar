@@ -23,7 +23,7 @@ const FileUploader = ({ onDataLoaded }: FileUploaderProps) => {
         
         // Validate data format
         if (!Array.isArray(json)) {
-          throw new Error("The uploaded file must contain a JSON array");
+          throw new Error("O arquivo enviado deve conter um array JSON");
         }
         
         // Check if data has the expected structure
@@ -38,20 +38,20 @@ const FileUploader = ({ onDataLoaded }: FileUploaderProps) => {
         );
         
         if (!isValidFormat) {
-          throw new Error("The data format is incorrect. Please check the JSON structure.");
+          throw new Error("O formato dos dados está incorreto. Por favor, verifique a estrutura JSON.");
         }
         
         onDataLoaded(json);
         toast({
-          title: "Success!",
-          description: "Your data has been loaded successfully.",
+          title: "Sucesso!",
+          description: "Seus dados foram carregados com sucesso.",
           variant: "default",
         });
       } catch (error) {
-        console.error("Error parsing JSON:", error);
+        console.error("Erro ao analisar JSON:", error);
         toast({
-          title: "Error",
-          description: error instanceof Error ? error.message : "Failed to load data from file",
+          title: "Erro",
+          description: error instanceof Error ? error.message : "Falha ao carregar dados do arquivo",
           variant: "destructive",
         });
       }
@@ -79,8 +79,8 @@ const FileUploader = ({ onDataLoaded }: FileUploaderProps) => {
         handleFile(file);
       } else {
         toast({
-          title: "Invalid file type",
-          description: "Please upload a JSON file",
+          title: "Tipo de arquivo inválido",
+          description: "Por favor, envie um arquivo JSON",
           variant: "destructive",
         });
       }
@@ -94,8 +94,8 @@ const FileUploader = ({ onDataLoaded }: FileUploaderProps) => {
         handleFile(file);
       } else {
         toast({
-          title: "Invalid file type",
-          description: "Please upload a JSON file",
+          title: "Tipo de arquivo inválido",
+          description: "Por favor, envie um arquivo JSON",
           variant: "destructive",
         });
       }
@@ -105,9 +105,9 @@ const FileUploader = ({ onDataLoaded }: FileUploaderProps) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-xl">Upload Your Data</CardTitle>
+        <CardTitle className="text-xl">Envie Seus Dados</CardTitle>
         <CardDescription>
-          Upload a JSON file containing your toll expense data
+          Envie um arquivo JSON contendo seus dados de despesas de pedágio
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -121,16 +121,16 @@ const FileUploader = ({ onDataLoaded }: FileUploaderProps) => {
         >
           <Upload className="w-12 h-12 mx-auto text-dashboard-blue mb-4" />
           <p className="text-lg font-medium mb-2">
-            Drag and drop your JSON file here
+            Arraste e solte seu arquivo JSON aqui
           </p>
-          <p className="text-sm text-gray-500 mb-4">or</p>
+          <p className="text-sm text-gray-500 mb-4">ou</p>
           <div>
             <label htmlFor="file-upload">
               <Button
                 variant="outline"
                 className="cursor-pointer border-dashboard-blue text-dashboard-blue hover:bg-dashboard-blue hover:text-white"
               >
-                Browse Files
+                Procurar Arquivos
               </Button>
               <input
                 id="file-upload"

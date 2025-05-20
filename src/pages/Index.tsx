@@ -26,10 +26,10 @@ const Index = () => {
       setDashboardData(processed);
       setIsDataLoaded(true);
     } catch (error) {
-      console.error("Error processing data:", error);
+      console.error("Erro ao processar dados:", error);
       toast({
-        title: "Error",
-        description: "Failed to process the uploaded data",
+        title: "Erro",
+        description: "Falha ao processar os dados enviados",
         variant: "destructive",
       });
     }
@@ -60,10 +60,10 @@ const Index = () => {
       <div className="container py-8">
         <header className="mb-8">
           <h1 className="text-3xl font-bold text-dashboard-blue-dark mb-2">
-            Toll Expense Dashboard
+            Dashboard de Despesas de Pedágio
           </h1>
           <p className="text-gray-600">
-            Upload your toll expense data to visualize and analyze costs
+            Envie seus dados de despesas de pedágio para visualizar e analisar custos
           </p>
         </header>
 
@@ -76,7 +76,7 @@ const Index = () => {
                 onClick={handleSampleData}
                 className="text-dashboard-blue"
               >
-                Use sample data instead
+                Usar dados de exemplo
               </Button>
             </div>
           </div>
@@ -88,7 +88,7 @@ const Index = () => {
                 onClick={resetDashboard}
                 className="text-dashboard-gray border-dashboard-gray hover:bg-dashboard-gray hover:text-white"
               >
-                Reset Dashboard
+                Reiniciar Dashboard
               </Button>
             </div>
             

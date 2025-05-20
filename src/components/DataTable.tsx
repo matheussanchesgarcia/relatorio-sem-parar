@@ -14,8 +14,8 @@ const DataTable = ({ data }: DataTableProps) => {
   return (
     <Card className="col-span-3">
       <CardHeader>
-        <CardTitle>Raw Data</CardTitle>
-        <CardDescription>Full toll expense data details</CardDescription>
+        <CardTitle>Dados Brutos</CardTitle>
+        <CardDescription>Detalhes completos das despesas de pedágio</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
