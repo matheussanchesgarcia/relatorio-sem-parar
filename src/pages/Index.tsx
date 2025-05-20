@@ -8,6 +8,7 @@ import MetricCards from "@/components/MetricCards";
 import DataTable from "@/components/DataTable";
 import ComparisonChart from "@/components/ComparisonChart";
 import PaymentStatus from "@/components/PaymentStatus";
+import ExportButton from "@/components/ExportButton";
 import { TollData, FormattedTollData } from "@/types/dashboard";
 import { processData, getPaymentData } from "@/utils/dataProcessor";
 import { useToast } from "@/hooks/use-toast";
@@ -87,7 +88,8 @@ const Index = () => {
           </div>
         ) : (
           <>
-            <div className="flex justify-end mb-6">
+            <div className="flex justify-between items-center mb-6">
+              <ExportButton data={dashboardData.rawData} />
               <Button 
                 variant="outline" 
                 onClick={resetDashboard}
