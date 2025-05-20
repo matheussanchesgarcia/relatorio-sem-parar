@@ -1,12 +1,14 @@
 
-import { TollData, ChartData, FormattedTollData } from "@/types/dashboard";
+import { TollData, ChartData, FormattedTollData, PaymentData } from "@/types/dashboard";
 
 export const processData = (data: TollData[]): FormattedTollData => {
   if (!data || !data.length) {
     return {
       rawData: [],
       chartData: [],
-      totalCost: 0
+      totalCost: 0,
+      paidAmount: 79792.59,  // Saldo que entrou na conta
+      remainingAmount: 0
     };
   }
   
@@ -21,11 +23,20 @@ export const processData = (data: TollData[]): FormattedTollData => {
       color: colors[index % colors.length]
     };
   });
+
+  // Valor já pago (saldo que entrou na conta)
+  const paidAmount = 79792.59;
+  
+  // Valor restante a pagar
+  const eldoradoCost = data[0]["Custo Total Pedágio - Eldorado"] || 0;
+  const remainingAmount = eldoradoCost - paidAmount;
   
   return {
     rawData: data,
     chartData: chartData,
-    totalCost: totalCost
+    totalCost: totalCost,
+    paidAmount: paidAmount,
+    remainingAmount: remainingAmount
   };
 };
 
@@ -34,4 +45,15 @@ export const formatCurrency = (value: number): string => {
     style: 'currency',
     currency: 'BRL'
   }).format(value);
+};
+
+export const getPaymentData = (data: FormattedTollData): PaymentData => {
+  const eldoradoData = data.chartData.find(item => item.name === "Eldorado");
+  
+  return {
+    entity: "Eldorado",
+    paidAmount: data.paidAmount,
+    totalAmount: eldoradoData?.value || 0,
+    remainingAmount: data.remainingAmount
+  };
 };

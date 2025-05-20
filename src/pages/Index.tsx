@@ -7,15 +7,18 @@ import TollPieChart from "@/components/TollPieChart";
 import MetricCards from "@/components/MetricCards";
 import DataTable from "@/components/DataTable";
 import ComparisonChart from "@/components/ComparisonChart";
+import PaymentStatus from "@/components/PaymentStatus";
 import { TollData, FormattedTollData } from "@/types/dashboard";
-import { processData } from "@/utils/dataProcessor";
+import { processData, getPaymentData } from "@/utils/dataProcessor";
 import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
   const [dashboardData, setDashboardData] = useState<FormattedTollData>({
     rawData: [],
     chartData: [],
-    totalCost: 0
+    totalCost: 0,
+    paidAmount: 0,
+    remainingAmount: 0
   });
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const { toast } = useToast();
@@ -50,7 +53,9 @@ const Index = () => {
     setDashboardData({
       rawData: [],
       chartData: [],
-      totalCost: 0
+      totalCost: 0,
+      paidAmount: 0,
+      remainingAmount: 0
     });
     setIsDataLoaded(false);
   };
@@ -97,6 +102,11 @@ const Index = () => {
                 data={dashboardData.chartData} 
                 totalCost={dashboardData.totalCost} 
               />
+            </div>
+            
+            {/* Novo componente de status de pagamento */}
+            <div className="mt-6">
+              <PaymentStatus data={getPaymentData(dashboardData)} />
             </div>
             
             <div className="grid grid-cols-3 gap-6 mt-6">

@@ -16,4 +16,13 @@ export interface FormattedTollData {
   rawData: TollData[];
   chartData: ChartData[];
   totalCost: number;
+  paidAmount: number;
+  remainingAmount: number;
+}
+
+export interface PaymentData {
+  entity: string;
+  paidAmount: number;
+  totalAmount: number;
+  remainingAmount: number;
 }
